@@ -1,0 +1,31 @@
+PREAMBLE \providecommand{\ket}[1]{\left|#1\right\rangle}
+PREAMBLE \providecommand{\phaseH}[1]{e^{-i{\gamma}_{#1} \hat{H}_P}}
+PREAMBLE \providecommand{\phaseM}[1]{e^{-i{\beta}_{#1} \hat{H}_M}}
+HEADER \usepackage{amsmath}
+SCALE 1.5
+
+a0 W \ket{0_0}
+a1 W \ket{0_1}
+a2 W \ket{0_2}
+...a3 W
+a4 W \ket{0_{n-1}}
+
+a0 H; a1 H; a2 H; a4 H
+
+a0 a1 a2 a4 G $\phaseH{0}$ width=30
+a0 a1 a2 a4 G $\phaseM{0}$ width=30
+@ 2 %% first layer
+
+a0 a1 a2 a4 G $\phaseH{1}$ width=30
+a0 a1 a2 a4 G $\phaseM{1}$ width=30
+@ 2 %% second layer
+
+LABEL ...
+
+a0 a1 a2 a4 G $\phaseH{P-1}$ width=40
+a0 a1 a2 a4 G $\phaseM{P-1}$ width=40
+@ 2 %% $P$-th layer
+
+a0 M; a1 M; a2 M; a4 M
+
+a0 a1 a2 a4 W >\ket{\boldsymbol\beta, \boldsymbol\gamma}

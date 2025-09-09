@@ -1,0 +1,76 @@
+\begin{frame}{Numerical Results}{Classical simulation setup}
+    % \item Results produced using classical simulation of QAOA in Qiskit
+    % \item Simulation limited to $\leq 27$ qubits on local hardware
+    % \begin{itemize}
+    %     \item $(|V|=10, |E|=22)$
+    %     \item $(|V|=20, |E|=42)$
+    % \end{itemize}
+    % Parameters varied:
+    \begin{itemize}
+        \item Number of requests: $2$ to $10$
+        \item Number of alternate routes: $1$ to $10$
+        \item Number of wavelengths: $1$ to $\abs{P}$
+        \item Circuit depths $1$ to $4$
+        \item Two network topologies
+        \item Result compared to the $k$ shortest paths first-fit
+    \end{itemize}
+    % \item 142 RWA instances, depths $p=1$ to $p=4$
+    % \item Baseline: $k$-shortest-path first-fit (k-SPFF)
+    % \item Two random network topologies:
+\input{pictures/plotfigs/topology.tex}
+\end{frame}
+
+
+\begin{frame}{Numerical Results: Performance}
+\begin{itemize}
+    \item Blocking ratio:
+    \begin{itemize}
+        \item At circuit depth $=1$: 20.7\% vs. 6\% ($k$-SPFF)
+        \item At circuit depth $=4$: reduced to 18.0\%
+    \end{itemize}
+    \item Wavelength usage:
+    \begin{itemize}
+        \item QAOA (depth 1): 82.4\% vs. 86.9\% ($k$-SPFF)
+        \item At depth 4: 79.6\%
+    \end{itemize}
+    % \item Runtime: QAOA simulation $\gg$ SPFF (exponential scaling)
+    % \item Underperformance linked to barren plateau phenomenon \cite{grant2019-barren-plateu, McClean2018-barren-plateu, Cunningham2025-vqc-vqe-barren-plateu-taxonomy-literature-review}
+\end{itemize}
+\input{pictures/plotfigs/pairs.tex}
+% \includegraphics[width=0.9\textwidth]{pictures/plotfigs/runtime.pdf}
+\end{frame}
+
+
+\begin{frame}{Numerical Results}{Effect of the modified cost function}
+% \begin{itemize}
+    % \item Original cost function: $ f(\mathbf{x}) = f_{\text{collision}} + f_{\text{wavelength}} $
+    % \item Observation: wavelength penalty biases towards fewer wavelengths, ↑ blocking
+    \textbf{Modification:} set $f_{\text{wavelength}} =0$. \\
+    \textbf{Blocking ratio:} $\downarrow$ by $\sim$3.25\%, \textbf{Wavelength usage:} $\uparrow$ by $\sim$17\%\\
+    \textbf{Top rows:} before cost function modification, \textbf{bottom row:} after
+    % \item QAOA still underperforms baseline but trade-off becomes clearer
+% \end{itemize}
+    \input{pictures/plotfigs/pairs_before}
+\input{pictures/plotfigs/cc_pairs.tex}
+\end{frame}
+
+\begin{frame}{Quality of Solutions: Distribution Analysis}
+\begin{itemize}
+    % \item QAOA produces a \textbf{distribution} over feasible states.
+    \item Many sampled solutions are low-quality $\Rightarrow$ expected performance pulled down.
+    \item Occasionally samples high-quality solutions (better than heuristic).
+    % \item Probability of obtaining a “good” solution decreases with problem size.
+    \item For small instances ($<20$ qubits), $\sim$10 measurement shots are sufficient to reach $>95\%$ confidence of finding a better solution.
+\end{itemize}
+\input{pictures/plotfigs/prob.tex}
+\end{frame}
+
+
+\begin{frame}{Numerical Results: Two-steps scheme}
+\begin{itemize}
+        \item Joint formulation $\Rightarrow$ up to 20\% lower blocking
+        \item Also uses fewer wavelengths than two-step scheme
+        \item Confirms benefit of joint optimisation
+\end{itemize}
+\input{pictures/plotfigs/rawa.tex}
+\end{frame}

@@ -1,0 +1,76 @@
+\documentclass{beamer}
+\setbeamertemplate{footline}[frame number]
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{float}
+\usepackage[section]{placeins}
+\usepackage{subcaption}
+\usepackage[labelfont=bf]{caption}
+\usepackage[backend=biber, sorting=none,  style=numeric-comp]{biblatex}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+\RequirePackage{silence}
+\WarningFilter{latexfont}{Font shape `}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+
+\DeclareMathAlphabet{\mathbbold}{U}{bbold}{m}{n}
+\newcommand{\identity}{\mathbbold{1}}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiter\expected{\langle}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+
+\title{\textbf{Non-Adiabatic Strategies for Quantum Optimisation Algorithms: Quantum Walk and Optimal State-Transfer}}
+
+\pdfstringdefDisableCommands{%
+  \def\\{}%
+}
+\author{ Chayapon Thunsetkul \\
+	Advisor: Dr. Alejandra Beghelli
+}
+
+\date{\today}
+
+\newcommand{\Nb}{N_{\text{best}}}
+\newcommand{\Np}{N_{\text{pair}}}
+\addbibresource{../project_report/references/merged.bib}
+% \bibliographystyle{ieeetr}
+\usepackage[table,HTML]{xcolor}
+\definecolor{RED}{HTML}{d20f39}
+\definecolor{PEACH}{HTML}{fe640b}
+\definecolor{TEAL}{HTML}{179299}
+\definecolor{PINK}{HTML}{ea76cb}
+\definecolor{SKY}{HTML}{04a5e5}
+\definecolor{BLUE}{HTML}{1e66f5}
+\definecolor{BLACK}{HTML}{4c4f69}
+
+\newcommand{\reddashed}{\tikz[baseline=-0.5ex]\draw[RED,dashed, line width = 1pt,font=\boldmath] (0,0) -- (0.5,0) node[midway]{ \scriptsize $\times$};}
+\newcommand{\peachdashed}{\tikz[baseline=-0.5ex]\draw[PEACH,dashed, line width = 1pt,font=\boldmath] (0,0) -- (0.5,0) node[midway]{\scriptsize $\times$};}
+\newcommand{\pinkdashed}{\tikz[baseline=-0.5ex]\draw[PINK,dashed, line width = 1pt,font=\boldmath] (0,0) -- (0.5,0) node[midway]{\scriptsize $\times$};}
+\newcommand{\skydashed}{\tikz[baseline=-0.5ex]\draw[SKY,dashed, line width = 1pt,font=\boldmath] (0,0) -- (0.5,0) node[midway]{\scriptsize $\times$};}
+\newcommand{\blackline}{\tikz[baseline=-0.5ex]\draw[BLACK,solid, line width = 1pt,font=\boldmath] (0,0) -- (0.5,0) node[midway]{\scriptsize $\times$};}
+\newcommand{\blackdashed}{\tikz[baseline=-0.5ex]\draw[BLACK,dashed, line width = 1pt,font=\boldmath] (0,0) -- (0.5,0) node[midway]{\scriptsize $\times$};}
+\title{
+Using QAOA for Routing and Wavelength Assignment Optimisation in Optical Networks
+}
+\begin{document}
+\frame{\titlepage}
+\include{sections/intro.tex}
+\include{sections/qaoa.tex}
+\include{sections/formulation.tex}
+\include{sections/results.tex}
+\include{sections/conclusion.tex}
+\begin{frame}[allowframebreaks]
+\printbibliography
+\end{frame}
+\include{sections/appendix}
+\end{document}
+

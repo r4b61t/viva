@@ -1,0 +1,20 @@
+\begin{frame}{Routing and Wavelength Assignment (RWA)}
+    \begin{itemize}
+        \item In wavelength division multiplexing (WDM) network, a connection between a source and a destination node is established by a lightpath.
+        \item A lightpath is a set of links associated with a unique wavelength.
+        \item A lightpath must \begin{enumerate}
+                \item have all of its link using the same wavelength (wavelength continuity), and
+                \item not use the same wavelength as another lightpath sharing same link(s).
+            \end{enumerate}
+        \item The task of assigning routes and wavelengths optimally is called the Routing and wavelength assignment (RWA) problem\cite{Birman515906}.
+
+    \end{itemize}
+\end{frame}
+\begin{frame}{Motivation}
+    \begin{itemize}
+        \item The problem is NP-complete and exact solutions are intractable at large scales\cite{Chlamtac101539, Birman515906, Bala147477}.
+        \item Classical heuristics (e.g.\ shortest-path first-fit) provide good but not necessarily optimal solutions\cite{Chlamtac101539, Birman515906, Bala147477, Subramaniam605312, Gibong497889, Karasan664267, Barry719747}.
+        \item Quantum and quantum-inspired methods, have been investigated as potential alternatives\cite{Seker01022024, boev2023}.
+        \item One of the main limitation of these quantum approaches is that hard constraint must be modelled as penalties in the cost function, yielding infeasible solution.
+    \end{itemize}
+\end{frame}
